@@ -16,6 +16,7 @@
 		306E86472AA791680015E944 /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306E86462AA791680015E944 /* PokedexTests.swift */; };
 		306E86512AA791680015E944 /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306E86502AA791680015E944 /* PokedexUITests.swift */; };
 		306E86532AA791680015E944 /* PokedexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306E86522AA791680015E944 /* PokedexUITestsLaunchTests.swift */; };
+		306E86622AA7937C0015E944 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 306E86642AA7937C0015E944 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		306E864C2AA791680015E944 /* PokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		306E86502AA791680015E944 /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		306E86522AA791680015E944 /* PokedexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		306E86632AA7937C0015E944 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		306E86652AA793800015E944 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 		306E862F2AA791670015E944 /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
+				306E86662AA793960015E944 /* Localization */,
 				306E86302AA791670015E944 /* PokedexApp.swift */,
 				306E86322AA791670015E944 /* ContentView.swift */,
 				306E86342AA791680015E944 /* Assets.xcassets */,
@@ -131,6 +135,14 @@
 				306E86522AA791680015E944 /* PokedexUITestsLaunchTests.swift */,
 			);
 			path = PokedexUITests;
+			sourceTree = "<group>";
+		};
+		306E86662AA793960015E944 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				306E86642AA7937C0015E944 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				306E86382AA791680015E944 /* Preview Assets.xcassets in Resources */,
+				306E86622AA7937C0015E944 /* Localizable.strings in Resources */,
 				306E86352AA791680015E944 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +315,18 @@
 			targetProxy = 306E864D2AA791680015E944 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		306E86642AA7937C0015E944 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				306E86632AA7937C0015E944 /* de */,
+				306E86652AA793800015E944 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		306E86542AA791680015E944 /* Debug */ = {
