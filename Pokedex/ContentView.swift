@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var showSettings: Bool = false
 
 //    @FetchRequest(
 //        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -18,18 +19,21 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            Text("Pokémon")
+            PokedexView(showSettings: $showSettings)
                 .tabItem {
                     Label("Pokédex", systemImage: "pawprint")
                 }
-            Text("Games")
+            GamesView(showSettings: $showSettings)
                 .tabItem {
                     Label("Games", systemImage: "gamecontroller")
                 }
-            Text("Items")
+            ItemsView(showSettings: $showSettings)
                 .tabItem {
                     Label("Items", systemImage: "circle.grid.3x3")
                 }
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
         }
     }
 }
