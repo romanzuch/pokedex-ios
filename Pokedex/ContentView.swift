@@ -19,7 +19,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView {
-            PokedexView(showSettings: $showSettings)
+            PokedexView()
                 .tabItem {
                     Label("Pokédex", systemImage: "pawprint")
                 }
