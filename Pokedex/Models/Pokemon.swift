@@ -110,10 +110,49 @@ struct PokemonTypeInfo: Codable {
 extension PokemonTypeInfo {
     func getColor() -> Color {
         switch name {
+        case "normal":
+            return Color.gray
+        case "fighting":
+            return Color.red
+        case "flying":
+            return Color.blue
+        case "poison":
+            return Color.purple
+        case "ground":
+            return Color.brown
+        case "rock":
+            return Color(UIColor(red: 0.67, green: 0.62, blue: 0.49, alpha: 1.0))
+        case "bug":
+            return Color(UIColor(red: 0.55, green: 0.63, blue: 0.09, alpha: 1.0))
+        case "ghost":
+            return Color(UIColor(red: 0.29, green: 0.12, blue: 0.29, alpha: 1.0))
+        case "steel":
+            return Color(UIColor(red: 0.73, green: 0.73, blue: 0.82, alpha: 1.0))
+        case "fire":
+            return Color.red
+        case "water":
+            return Color.blue
         case "grass":
             return Color.green
+        case "electric":
+            return Color.yellow
+        case "psychic":
+            return Color(UIColor(red: 0.97, green: 0.29, blue: 0.51, alpha: 1.0))
+        case "ice":
+            return Color.blue
+        case "dragon":
+            return Color(UIColor(red: 0.44, green: 0.15, blue: 0.95, alpha: 1.0))
+        case "dark":
+            return Color.black
+        case "fairy":
+            return Color(UIColor(red: 0.98, green: 0.56, blue: 0.75, alpha: 1.0))
+        case "unknown":
+            return Color.gray
+        case "shadow":
+            return Color.black
         default:
             return Color.gray
         }
     }
 }
+
