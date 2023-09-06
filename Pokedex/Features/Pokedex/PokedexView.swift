@@ -34,62 +34,67 @@ struct PokedexView: View {
     }
     
     var cards: some View {
-        VStack(alignment: .center) {
-            HStack {
-//                Text(pokemonList[index].name).textCase(.uppercase)
-                Text(viewModel.pokemonList[viewModel.index].name).textCase(.uppercase)
-                    .font(.title)
-                    .fontWeight(.bold)
-                Spacer()
-                Text("#\(viewModel.index + 1)")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-            }
-            
-            HStack {
-                Spacer()
-                AsyncImage(url: URL(string: self.viewModel.currentPokemon?.sprites.front_shiny ?? "")) { image in
-                    image
-                        .resizable()
-                        .frame(width: 256, height: 256, alignment: .center)
-                } placeholder: {
-                    ProgressView().progressViewStyle(.circular)
+        ZStack {
+            // background
+            viewModel.currentPokemon?.types[0].type.getColor().ignoresSafeArea() ?? Color.gray.ignoresSafeArea()
+            // foreground
+            VStack(alignment: .center) {
+                HStack {
+                    Text(viewModel.pokemonList[viewModel.index].name).textCase(.uppercase)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Spacer()
+                    Text("#\(viewModel.index + 1)")
+                        .font(.title3)
+                        .fontWeight(.semibold)
                 }
+                .padding(.top, 48)
+                
                 Spacer()
-            }
-            .padding(-80)
-            .zIndex(-1)
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Stats").textCase(.uppercase)
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                stats
-            }
-            
-            HStack(spacing: 16) {
-                Button {
-                    viewModel.previous()
-                } label: {
-                    Image(systemName: "chevron.up.circle")
-                        .font(.largeTitle)
+                
+                HStack {
+                    Spacer()
+                    AsyncImage(url: URL(string: self.viewModel.currentPokemon?.sprites.front_shiny ?? "")) { image in
+                        image
+                            .resizable()
+                            .frame(width: 512, height: 512, alignment: .center)
+                    } placeholder: {
+                        ProgressView().progressViewStyle(.circular)
+                    }
+                    Spacer()
                 }
-                .buttonStyle(.plain)
-                Button {
-                    viewModel.next()
-                } label: {
-                    Image(systemName: "chevron.down.circle")
-                        .font(.largeTitle)
+                .padding(-80)
+                .zIndex(-1)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Stats").textCase(.uppercase)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                    stats
                 }
-                .buttonStyle(.plain)
+                
+                Spacer()
+                
+                HStack(spacing: 16) {
+                    Button {
+                        viewModel.previous()
+                    } label: {
+                        Image(systemName: "chevron.up.circle")
+                            .font(.largeTitle)
+                    }
+                    .buttonStyle(.plain)
+                    Button {
+                        viewModel.next()
+                    } label: {
+                        Image(systemName: "chevron.down.circle")
+                            .font(.largeTitle)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding()
             }
+            .padding()
         }
-        .padding()
-        .background {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(currentPokemon?.types[0].type.getColor() ?? Color.red)
-        }
-        .edgesIgnoringSafeArea(.all)
     }
     
     @ViewBuilder
